@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gravity Switcher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="background-music" loop volume="0.5">
+        <source src="Sound/background-music.mp3" type="audio/mp3">
+    </audio>
+    <audio id="collision-sound" src="Sound/impact-clash-129712.mp3"></audio>
+    <audio id="power-up-sound" src="Sound/power-up.mp3"></audio>
+    <audio id="level-up-sound" src="Sound/level-up.mp3"></audio>
+    <div class="login-container" id="login-page">
+      <video id="background-video" autoplay loop>
+        <source src="Images/stars.mp4" type="video/mp4">
+      </video>
+        <div class="login-box">
+            <h1>Gravity Switcher</h1>
+            <input type="text" id="player-name" placeholder="Enter your name">
+            <button id="start-game">Start Game</button>
+            <div class="instructions">
+                <h2>How to Play</h2>
+                <p>Use Arrow Keys or WASD to move</p>
+                <p>Collect power-ups for special abilities</p>
+                <p>Avoid obstacles and reach the goal</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container" id="game-page" style="display: none;">
+        <video id="background-video" autoplay muted loop>
+            <source src="Images/stars.mp4" type="video/mp4">
+        </video>
+        <div id="ball"></div>
+        <div id="goal"></div>
+        <div id="obstacles"></div>
+        <div id="power-ups"></div>
+        <div id="score">Level: 1</div>
+        <div id="player-display"></div>
+        <div id="power-up-timer"></div>
+        <div id="game-over">Game Over! Press R to Restart</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

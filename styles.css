@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Arial', sans-serif;
+  background: #000;
+}
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('Images/login-bg.png') center/cover;
+}
+
+.login-box {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.login-box h1 {
+  margin-bottom: 1.5rem;
+  color: #0ff;
+  font-size: 2.5em;
+  text-shadow: 0 0 10px #0ff;
+}
+
+#player-name {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.1em;
+}
+
+#start-game {
+  padding: 0.8rem 1.5rem;
+  background: #0ff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1.2em;
+  color: #000;
+  font-weight: bold;
+}
+
+#start-game:hover {
+  background: #00cccc;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #0ff;
+}
+
+.instructions {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-top: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.instructions h2 {
+  color: #0ff;
+  margin-bottom: 1rem;
+}
+
+.instructions p {
+  margin: 0.5rem 0;
+  color: #fff;
+}
+
+.game-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px currentColor; }
+    50% { box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px currentColor; }
+    100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px currentColor; }
+}
+
+.power-up {
+    animation: pulse 1s infinite, rotate 3s linear infinite;
+}
+
+.goal {
+    animation: glow 1.5s infinite;
+}
+
+.obstacle {
+    transition: transform 0.3s;
+}
+
+.obstacle:hover {
+    transform: scale(1.1);
+}
+
+#ball {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: url('Images/ball.png') center/cover;
+  border-radius: 50%;
+  transition: transform 0.1s, filter 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+#goal {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background: url('Images/goal.png') center/cover;
+  animation: pulse 2s infinite;
+}
+
+.obstacle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: url('Images/obstacle.png') center/cover;
+  animation: rotate 3s infinite linear;
+}
+
+.power-up {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: url('Images/power-up.png') center/cover;
+  animation: pulse 1s infinite;
+}
+
+#score, #player-display {
+  position: absolute;
+  top: 20px;
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+  z-index: 100;
+}
+
+#score {
+  left: 20px;
+}
+
+#player-display {
+  right: 20px;
+}
+
+#game-over {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 15px;
+  z-index: 1000;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#power-up-timer {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    display: none;
+}
